@@ -10,7 +10,7 @@ namespace UI
         {
             ProductManager productManager = new ProductManager(new EfProductDAL());
 
-            foreach (var item in productManager.GetAll())
+            foreach (var item in productManager.GetAllByCategoryId(2))
             {
                 Console.WriteLine(item.ProductName);
             }
