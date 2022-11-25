@@ -19,6 +19,8 @@ namespace Business.Concrete
             _productDAL = productDAL;
         }
 
+        //[LogAspect] //AOP //autofact aop imkanı sunar
+        //[Validate]
         public IResult Add(Product product)
         {
             //business codes
@@ -37,10 +39,10 @@ namespace Business.Concrete
             //bir iş sınıfı başka sınıfları newlemez. bu yuzden public alanda _inMemoryProductDAL oluşturulur
             //yetkisi var mı
 
-            if (DateTime.Now.Hour == 15)
-            {
-                return new ErrorDataResult<List<Product>>(ProductMessages.ProductMaintenanceTime);
-            }
+            //if (DateTime.Now.Hour == 15)
+            //{
+            //    return new ErrorDataResult<List<Product>>(ProductMessages.ProductMaintenanceTime);
+            //}
             return new SuccessDataResult<List<Product>>(_productDAL.GetAll(), ProductMessages.ProductsListed);
         }
 
@@ -61,10 +63,10 @@ namespace Business.Concrete
 
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
-            if (DateTime.Now.Hour == 15)
-            {
-                return new ErrorDataResult<List<ProductDetailDto>>(ProductMessages.ProductMaintenanceTime);
-            }
+            //if (DateTime.Now.Hour == 15)
+            //{
+            //    return new ErrorDataResult<List<ProductDetailDto>>(ProductMessages.ProductMaintenanceTime);
+            //}
             return new SuccessDataResult<List<ProductDetailDto>>(_productDAL.GetProductDetails());
         }
     }
