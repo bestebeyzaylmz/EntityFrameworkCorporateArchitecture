@@ -16,11 +16,19 @@ namespace UI
         {
             ProductManager productManager = new ProductManager(new EfProductDAL());
 
-            foreach (var item in productManager.GetProductDetails())
+            var result = productManager.GetProductDetails();
+            if (result.Success)
             {
-                Console.WriteLine(item.ProductName + " / " + item.CategoryName);
+                foreach (var item in productManager.GetProductDetails().Data)
+                {
+                    Console.WriteLine(item.ProductName + " / " + item.CategoryName);
+                }
             }
-        } 
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
         private static void CategoryTest()
         {
             CategoryManager categoryManager = new CategoryManager(new EfCategoryDAL());
