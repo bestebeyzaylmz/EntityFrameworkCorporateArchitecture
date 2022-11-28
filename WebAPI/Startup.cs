@@ -32,11 +32,11 @@ namespace WebAPI
             //autofact aop imkanı sunar
             services.AddControllers();
             
-            //tüm bellekte tek bi productmanager oluşturur ve üstünden ilerler. içinde data tutulmuyorsa kullan
-            services.AddSingleton<IProductService, ProductManager>();
+            ////tüm bellekte tek bi productmanager oluşturur ve üstünden ilerler. içinde data tutulmuyorsa kullan
+            //services.AddSingleton<IProductService, ProductManager>();
             
-            //IproductDal istenirse efproductdal ver
-            services.AddSingleton<IProductDAL, EfProductDAL>();
+            ////IproductDal istenirse efproductdal ver
+            //services.AddSingleton<IProductDAL, EfProductDAL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
         }
         
         [HttpGet("getall")]
-        public IActionResult Get()
+        public IActionResult GetAll()
         {
             var response = _productService.GetAll();
             if (response.Success==true)
@@ -34,7 +34,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Post(Product product)
+        public IActionResult Add(Product product)
         {
             var response = _productService.Add(product);
             if (response.Success)
@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getbyid")]
-        public IActionResult Get(int id)
+        public IActionResult GetById(int id)
         {
             var response = _productService.GetById(id);
             if (response.Success)
